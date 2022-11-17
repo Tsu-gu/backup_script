@@ -34,6 +34,7 @@ cp -ru /home/$username/testfol3 $backup_folder
 
 filename=Config-Backup-$date.tar.gz
 
+# Asks you whether you want to just leave the tar file as it is, or backup it onto an USB
 echo "Done! Want to save this into a USB? [y/n]"
 read choice
 if [ "$choice" == "y" ];
@@ -42,6 +43,7 @@ then
     cp $filename $USB
     echo "Done. You can press ctrl + c or the window will close automatically in 2 minutes."
 else
+	tar -czvf $filename /home/$username/Config_Backup/
     echo "As you wish. I saved your configs locally to $backup_folder. You can close this window by pressing ctrl + c."
 fi
 
